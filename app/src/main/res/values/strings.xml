@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">NY Times</string>
+    <string name="auther">Author -</string>
+    <string name="update_date">Updated -</string>
+    <string name="article_details">Article Details</string>
+</resources>
