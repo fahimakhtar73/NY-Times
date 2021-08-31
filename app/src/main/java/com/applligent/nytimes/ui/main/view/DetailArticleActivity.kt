@@ -5,6 +5,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.applligent.nytimes.R
 import com.applligent.nytimes.utils.Constants
+import com.applligent.nytimes.utils.Utility
 import kotlinx.android.synthetic.main.activity_detail_article.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -34,7 +35,7 @@ class DetailArticleActivity : AppCompatActivity() {
             val authorStr: String = bundle?.getString("author").toString()
             textViewAuthor.text = authorStr
 
-            val dateStr: String = parseDateToddMMyyyy(bundle?.getString("date").toString()).toString()
+            val dateStr: String = Utility.parseDateToddMMyyyy(bundle?.getString("date").toString()).toString()
             textViewDate.text = dateStr
 
             val descriptionStr: String = bundle?.getString("description").toString()
@@ -45,20 +46,6 @@ class DetailArticleActivity : AppCompatActivity() {
         }
     }
 
-
-    fun parseDateToddMMyyyy(time: String?): String? {
-        val inputFormat = SimpleDateFormat(Constants.INPUT_DATE)
-        val outputFormat = SimpleDateFormat(Constants.OUTPUT_DATE)
-        var date: Date? = null
-        var str: String? = null
-        try {
-            date = inputFormat.parse(time)
-            str = outputFormat.format(date)
-        } catch (e: ParseException) {
-            e.printStackTrace()
-        }
-        return str
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // handle arrow click here
